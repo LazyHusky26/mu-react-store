@@ -10,6 +10,7 @@ export default function Register() {
   const [a, setA] = useState(0)
   const [b, setB] = useState(0)
   const [result, setResult] = useState('')
+  const [showDetails, setShowDetails] = useState(false);
 
   const handleClick = () => {
     alert("Hello")
@@ -24,21 +25,27 @@ export default function Register() {
   }
 
   const printDetails = () => {
-
+    setShowDetails(true)
   }
 
   return (
     <div>
       <h1>Register</h1>
-      <p><input type="text" placeholder="Username" onChange={(e) => setUser({...user, name: e.target.value})}/></p>
-      <p><input type="text" placeholder="Email" onChange={(e) => setEmail({...email, email: e.target.value})} /></p>
-      <p><input type="password" placeholder="Password" onChange={(e) => setPassword({...password, password: e.target.value})} /></p>
+      <p><input type="text" placeholder="Username" onChange={(e) => setUser(e.target.value)}/></p>
+      <p><input type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} /></p>
+      <p><input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} /></p>
       <button onClick={printDetails}>Register</button>
       <p>Already have an account? <Link to="/Login">Login</Link></p>
       <hr />
 
-      printDetails()
-
+      {showDetails && (
+        <div style={{ marginTop: '20px' }}>
+          <h3>User Details</h3>
+          <p><strong>Username:</strong> {user}</p>
+          <p><strong>Email:</strong> {email}</p>
+          <p><strong>Password:</strong> {password}</p>
+        </div>
+      )}
 
       {/* <p>{count}</p>
       <p><button onClick={updateCount}>Click</button></p>
