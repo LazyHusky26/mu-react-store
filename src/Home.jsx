@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function Home() {
-  const { cart, setCart } = useContext(AppContext);
+  const { cart, setCart, email } = useContext(AppContext);
   const Navigate = useNavigate();
 
   let name = "John"
@@ -40,7 +40,8 @@ export default function Home() {
       name:obj.name, 
       price:obj.price, 
       desc:obj.desc, 
-      qty:1
+      qty:1,
+      email: email
     });
     Navigate('/Cart');
   }
