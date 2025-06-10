@@ -22,7 +22,11 @@ export default function Header({name}) {
                 </li>
                 <li>
                   {!email ? (
-                    <Link to="/Login">Login</Link>
+                    <>
+                      <Link to="/Order">Order</Link>
+                      <>  </>
+                      <Link to="/Login">Login</Link>
+                    </>
                   ) : (
                     <Link to="/Logout">Logout</Link>
                   )}

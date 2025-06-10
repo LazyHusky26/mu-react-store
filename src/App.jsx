@@ -10,15 +10,17 @@ import Login from './Login.jsx'
 import Register from './Register.jsx'
 import Cart from './Cart.jsx'
 import Logout from './Logout.jsx'
+import Order from './Order.jsx'
 export const AppContext = createContext()
 
 function App() {
     const [users, setUsers] = useState([]);
     const [cart, setCart] = useState({});
     const [email, setEmail] = useState('');
+    const [orders, setOrders] = useState([]);
   return (
     <div>
-      <AppContext.Provider value={{users, setUsers, cart, setCart, email, setEmail}}>
+      <AppContext.Provider value={{users, setUsers, cart, setCart, email, setEmail, orders, setOrders}}>
         <BrowserRouter>
           <Header name="MU Store" />
           <Routes>
@@ -28,6 +30,7 @@ function App() {
             <Route path="/Register" element={<Register />} />
             <Route path="/Cart" element={<Cart />} />
             <Route path="/Logout" element={<Logout />} />
+            <Route path="/Order" element={<Order />} />
             {/* <Home /> */}
           </Routes>
           <Footer />
