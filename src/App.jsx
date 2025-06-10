@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Home.jsx'
 import Login from './Login.jsx'
 import Register from './Register.jsx'
+import Cart from './Cart.jsx'
 export const AppContext = createContext()
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
+            <Route path="/Cart" element={<Cart />} />
             {/* <Home /> */}
           </Routes>
           <Footer />

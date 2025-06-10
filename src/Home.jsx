@@ -1,7 +1,9 @@
 import React from 'react'
 import './Home.css'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Home() {
+  const Navigate = useNavigate();
 
   let name = "John"
   let age = 10
@@ -29,6 +31,10 @@ export default function Home() {
     },
   ];
 
+  const goCart = () => {
+      Navigate('/Cart');
+    }
+
   return (
     <div className="App-Home-Row">
       {products.map((product) => (
@@ -37,7 +43,7 @@ export default function Home() {
           <h2>{product.name}</h2>
           <p>{product.desc}</p>
           <h4>{product.price}</h4>
-          <p><button>Add to Cart</button></p>
+          <p><button onClick={goCart}>Buy Now</button></p>
         </div>
       ))}
     </div>
