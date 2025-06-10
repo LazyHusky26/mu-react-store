@@ -21,14 +21,14 @@ export default function Header({name}) {
                   <Link to="/Cart">Cart</Link>
                 </li>
                 <li>
-                  {!email ? (
+                  {email ? (
                     <>
                       <Link to="/Order">Order</Link>
                       <>  </>
-                      <Link to="/Login">Login</Link>
+                      <Link to="/Logout">Logout</Link>
                     </>
                   ) : (
-                    <Link to="/Logout">Logout</Link>
+                    <Link to="/Login">Login</Link>
                   )}
                 </li>
             </ul>
