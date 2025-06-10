@@ -6,6 +6,7 @@ import { useContext } from 'react'
 
 export default function Header({name}) {
   const { email } = useContext(AppContext);
+
   return (
     <div className='App-Header-Row' style={{backgroundColor: "pink"}}>
         <div>
@@ -20,7 +21,11 @@ export default function Header({name}) {
                   <Link to="/Cart">Cart</Link>
                 </li>
                 <li>
-                  {!email ? <Link to="/Login">Login</Link>: <Link to="/">Logout</Link>}
+                  {!email ? (
+                    <Link to="/Login">Login</Link>
+                  ) : (
+                    <Link to="/Logout">Logout</Link>
+                  )}
                 </li>
             </ul>
         </div>

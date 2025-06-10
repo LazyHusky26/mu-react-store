@@ -9,6 +9,7 @@ import Home from './Home.jsx'
 import Login from './Login.jsx'
 import Register from './Register.jsx'
 import Cart from './Cart.jsx'
+import Logout from './Logout.jsx'
 export const AppContext = createContext()
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/Logout" element={<Logout />} />
             {/* <Home /> */}
           </Routes>
           <Footer />
