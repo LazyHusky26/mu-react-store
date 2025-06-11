@@ -11,6 +11,7 @@ import Register from './Register.jsx'
 import Cart from './Cart.jsx'
 import Logout from './Logout.jsx'
 import Order from './Order.jsx'
+import Product from './Product.jsx'
 export const AppContext = createContext()
 
 function App() {
@@ -24,8 +25,8 @@ function App() {
         <BrowserRouter>
           <Header name="MU Store" />
           <Routes>
-            <Route index element={<Home />} />
-            <Route path="/" element={<Home />} />
+            <Route index element={<Product />} />
+            <Route path="/Home" element={<Home />} />
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/Cart" element={<Cart />} />

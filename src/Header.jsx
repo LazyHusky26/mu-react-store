@@ -15,7 +15,7 @@ export default function Header({name}) {
         <div>
             <ul>
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/Home">Home</Link>
                 </li>
                 <li>
                   <Link to="/Cart">Cart</Link>

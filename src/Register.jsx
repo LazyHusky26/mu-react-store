@@ -2,13 +2,24 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useContext } from 'react'
 import { AppContext } from './App.jsx'
+import { useRef } from 'react'
 
 export default function Register() {
   const [user, setUser] = useState({});
   const { users, setUsers } = useContext(AppContext);
   const Navigate = useNavigate();
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passRef = useRef();
+
   const handleSubmit = () => {
-    setUsers([...users, user]);
+    const userObj = {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+      pass: passRef.current.value
+    }
+    // setUsers([...users, user]);
+    setUsers([...users, userObj]);
     Navigate('/Login')
   };
   // const [user, setUser] = useState('')
@@ -46,9 +57,9 @@ export default function Register() {
     <div>
       <h1>Register</h1>
       {/* <p><input type="text" placeholder="Username" onChange={(e) => setUser({...user, name:e.target.value})}/></p> */}
-      <p><input type="text" placeholder="Username" onChange={(e) => setUser({...user, name:e.target.value})}/></p>
-      <p><input type="text" placeholder="Email" onChange={(e) => setUser({...user, email:e.target.value})} /></p>
-      <p><input type="password" placeholder="Password" onChange={(e) => setUser({...user, pass:e.target.value})} /></p>
+      <p><input type="text" ref={nameRef} placeholder="Username" onChange={(e) => setUser({...user, name:e.target.value})}/></p>
+      <p><input type="text" ref={emailRef} placeholder="Email" onChange={(e) => setUser({...user, email:e.target.value})} /></p>
+      <p><input type="password" ref={passRef} placeholder="Password" onChange={(e) => setUser({...user, pass:e.target.value})} /></p>
       <button onClick={handleSubmit}>Register</button>
       <p>Already have an account? <Link to="/Login">Login</Link></p>
       <hr />
